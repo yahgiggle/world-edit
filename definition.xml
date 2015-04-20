@@ -1,0 +1,9 @@
+<Lua-Script>
+    <Name>World Edit</Name>
+    <Description>Allow editing world with ease. Based on andyzee's original script.</Description>
+    <File>worldedit.lua</File>
+    <Author>LordFoobar</Author>
+    <Team></Team>
+    <Website></Website>
+    <License></License>
+</Lua-Script>
