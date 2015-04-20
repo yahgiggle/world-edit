@@ -1,7 +1,7 @@
 # English
 # Locale for World Edit script
 
-error.restricted=You don't have admin rights on this server. Request Admin rights or use /we-cancel to cancel the selection.
+error.restricted=You don't have admin rights on this server. Request Admin rights or use /we cancel to cancel the selection.
 
 cmd.no.selection=No selection
 cmd.missing.arg=Missing argument: %s

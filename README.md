@@ -63,6 +63,10 @@ In-game, enter `/we help` for more information.
 * LordFoobar (Yanick Rochon)
 * andyzee (Andy Zee)
 
+### Translators
+
+* NDMR (German)
+
 
 ## License
 
