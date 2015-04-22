@@ -20,3 +20,18 @@ function table.slice(tbl, first, last, step)
 
   return sliced
 end
+
+
+--- Return all the keys in the given table. The table is assume not to be
+--- an array.
+-- @param tbl the table
+-- @return table an array of all the keys in the given table
+function table.keys(tbl)
+  local keys = {};
+
+  for key,val in pairs(tbl) do
+    table.insert(keys, key);
+  end
+
+  return keys;
+end

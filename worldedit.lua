@@ -8,6 +8,7 @@ config = getProperty("config.properties");
 -- load dependencies
 include("i18n/i18n.lua");
 include("blocks.lua");
+include("listeners/playerListener.lua");
 include("listeners/commandListener.lua");
 
 

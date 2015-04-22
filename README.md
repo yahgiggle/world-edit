@@ -55,7 +55,44 @@ Your final script folder should look somewhat like this
 
 ## Usage
 
-In-game, enter `/we help` for more information.
+In-game, in chat, type `/we <command>` where `<command>` is one of the following :
+
+### Commands
+
+* `help [<command>]` : dipslay help. If `<command>` is specified, display help for that command.  
+  Ex: `/we help fill`
+
+* `select` : start area selection  
+* `cancel` : cancel area selection
+* `fill air|dirt|grass|stone|#id [-c]` : fill the selected area with the specified terrain.  Add `-c` to clear everything, first.  
+  Ex: `/we fill -c grass`
+
+* `fill clear [obj|con|veg|all|abs]` : clear the selected area of (obj)ects, (con)structions, (veg)etations, (all), or (abs)olutely everything. (Default `all`)  
+  Ex: `/we clear veg`
+
+* `place <blockType> id [north|east|south|west [sideway|flipped]]` : place a block with the given `id`, optionally facing the given direction and put `sideway` or `flipped`.  
+  Ex: `/we place ramp 121 east flipped`
+
+
+### Block Types
+
+* `block` (aliases: `b`, `blk`)
+* `cylinder` (aliases: `c`, `cyl`)
+* `cylinderhalf` (aliases: `ch`, `cylh`)
+* `stair` (aliases: `s`, `s1`, `stair1`)
+* `stair2` (aliases: `s2`)
+* `stair3` (aliases: `s3`)
+* `staircorner` (aliases: `sc`, `stairc`)
+* `stairinnercorner` (aliases: `sic`, `stairic`)
+* `ramp` (aliases: `r`)
+* `ramphalfcorner` (aliases: `rhc`, `ramphc`, `ramphalfc`)
+* `rampinnercorner` (aliases: `ric`, `rampic`)
+* `rampcorner` (aliases: `rc`, `rampc`)
+* `halfblockbottom` (aliases: `bh`, `hb1`, `hbb`, `halfblk`, `halfblk1`, `halfblkb`, `halfblock`, `halfblock1` `halfblockb`)
+* `halfblockcenter` (aliases: `hb2`, `hbc`, `halfblk2`, `halfblkc`, `halfblock2`, `halfblockc`)
+* `halfblocktop` (aliases: `hb3`, `hbt`, `halfblk3`, `halfblkt`, `halfblock3`, `halfblockt`)
+* `pyramid` (aliases: `p`, `pyr`)
+* `arc` (aliases: `a`)
 
 
 ## Contributors

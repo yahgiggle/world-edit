@@ -4,15 +4,17 @@ include("security.lua");
 include("table-ext.lua");
 
 
-local fillAvailableArgs = {"air","dirt","grass","stone","#id"};
-local clearAvailableArgs = {"obj","con","veg","all","abs"};
 local textureAliasMap = {
   air = 0,
   dirt = 1,
-  stone = 2,
-  grass = 3
-  --- TODO : add more textures! (update fillAvailableArgs, too)
+  grass = 2,
+  stone = 3
+  --- TODO : add more textures!
 };
+local fillAvailableArgs = table.keys(textureAliasMap);
+local clearAvailableArgs = {"obj","con","veg","all","abs"};
+
+table.insert(fillAvailableArgs, "#id");
 
 
 local function weHelp(event, args)
@@ -47,19 +49,37 @@ local function weHelp(event, args)
 end
 
 
+
+local function setLabel(event, text)
+  local label = event.player:getAttribute("stateLabel");
+
+  if text then
+    label:setText(text);
+    label:setVisible(true);
+  else
+    label:setText("");
+    label:setVisible(false);
+  end
+end
+
+
+
 local function weSelect(event)
   print("Area selection start");
   event.player:enableMarkingSelector(function()
 
   end);
-  event.player:sendYellMessage(i18n.t(event.player, "select.start"));
+
+  setLabel(event, i18n.t(event.player, "select.start"));
 end
 
 
 local function weCancel(event)
-  print("Area selection cancelled");
   event.player:disableMarkingSelector(function(markingEvent)
     if markingEvent ~= false then
+      setLabel(event);
+
+      print("Area selection cancelled");
       event.player:sendTextMessage("[#FF0000]"..i18n.t(event.player, "select.cancelled"));
     end
   end);
@@ -72,6 +92,7 @@ local function weClear(event, args, flags)
   event.player:disableMarkingSelector(function(markingEvent)
     if markingEvent ~= false then
       local coords = getCoordsFromMarkEvent(markingEvent);
+      setLabel(event);
 
       if clearObjType == "obj" then
         print("Clearing area of objects");
@@ -89,7 +110,7 @@ local function weClear(event, args, flags)
         print("Clearing area of absolutely everything");
         removeAll(coords, true);
       else
-        return event.player:sendTextMessage("[#FF0000]"..i18n.t(event.player, "cmd.use.args", table.concat(clearAvailableArgs, ",")));
+        return event.player:sendTextMessage("[#FF0000]"..i18n.t(event.player, "cmd.use.args", table.concat(clearAvailableArgs, ", ")));
       end
     else
       event.player:sendTextMessage("[#FF0000]"..i18n.t(event.player, "cmd.no.selection"));
@@ -115,9 +136,9 @@ local function wePlaceBlock(event, args, flags)
     event.player:disableMarkingSelector(function(markingEvent)
       if markingEvent ~= false then
         local coords = getCoordsFromMarkEvent(markingEvent);
+        setLabel(event);
 
         print("Placing "..blockType.." in area with id "..blockId..(cleanup ~= nil and " with cleanup" or ""));
-
         fillWithBlock(coords, blockId);
       end
     end);
@@ -140,7 +161,7 @@ local function weFill(event, args, flags)
 
   if id then
 
-    if id > 16 then
+    if id < 0 or id > 16 then
       print("Terrain id adjusted from "..id.." to 0");
       id = 0;
     end;
@@ -148,16 +169,16 @@ local function weFill(event, args, flags)
     event.player:disableMarkingSelector(function(markingEvent)
       if markingEvent ~= false then
         local coords = getCoordsFromMarkEvent(markingEvent);
+        setLabel(event);
 
         print("Filling area with id "..id..(cleanup ~= nil and " with cleanup" or ""));
-
         fillWith(coords, id, cleanup);
       else
         event.player:sendTextMessage("[#FF0000]"..i18n.t(event.player, "cmd.no.selection"));
       end
     end);
   else
-    event.player:sendTextMessage("[#FF0000]"..i18n.t(event.player, "cmd.use.args", table.concat(fillAvailableArgs, ",")));
+    event.player:sendTextMessage("[#FF0000]"..i18n.t(event.player, "cmd.use.args", table.concat(fillAvailableArgs, ", ")));
   end
 end
 

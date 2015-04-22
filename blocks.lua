@@ -74,6 +74,7 @@ local blockAliasMap = {
   stairic = "stairinnercorner",
 
   r = "ramp",
+
   rhc = "ramphalfcorner",
   ramphc = "ramphalfcorner",
   ramphalfc = "ramphalfcorner",
@@ -87,7 +88,10 @@ local blockAliasMap = {
   hb = "halfblockbottom",
   hbb = "halfblockbottom",
   hb1 = "halfblockbottom",
+  halfblk = "halfblockbottom",
   halfblkb = "halfblockbottom",
+  halfblk1 = "halfblockbottom",
+  halfblock = "halfblockbottom",
   halfblockb = "halfblockbottom",
   halfblock1 = "halfblockbottom",
   hbc = "halfblockcenter",
