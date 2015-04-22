@@ -42,6 +42,7 @@ Your final script folder should look somewhat like this
       ./en.locale
    ./listeners
       ./commandListener.lua
+      ./playerListener.lua
    ./definition.xml
    ./blocks.lua
    ./config.properties
