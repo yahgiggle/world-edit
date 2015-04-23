@@ -1,9 +1,9 @@
 # German
 # Locale for World Edit script
 
-error.restricted=Sie haben keine Administratorenrechte auf diesem Server. Wende dich an einen Admin oder verwende /we cancel um die Aktion abzubrechen.
+error.restricted=Keine Berechtigung. Wende dich an einen Administrator oder verwende /we cancel um die Auswahl abzubrechen.
 
-cmd.no.selection=Keine Auswahl
+cmd.no.selection=Kein Bereich markiert.
 cmd.missing.arg=Fehlender Parameter: %s
 cmd.unknown=Ungueltiger Befehl
 cmd.use.args=Benutze einen der folgenden Parameter: %s
@@ -11,8 +11,8 @@ cmd.use.args=Benutze einen der folgenden Parameter: %s
 select.start=Waehle den Bereich zum bearbeiten. Schreibe "/we help" fuer Hilfe.
 select.cancelled=Auswahl abgebrochen.
 
-help.usage=Alle Befehle koennen Hilfe anzeigen. Bsp: %s
-help.select.usage=Waehle ein Bereich zum bearbeiten.
+help.usage=Gebe den Parameter fuer die Hilfe mit an. Bsp: %s
+help.select.usage=Markiere den Bereich zum bearbeiten.
 help.cancel.usage=Aktuelle Auswahl abbrechen.
 help.clear.usage=Bereinigen der Auswahl von [obj]ects, [con]structions, [veg]egations, [all], oder [abs]olutely everything.
 help.fill.usage=Fuellt die Auswahl mit Erde oder Stein. Verwenden -c, um den Bereich zuerst zu löschen.
