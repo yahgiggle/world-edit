@@ -140,6 +140,8 @@ local function wePlaceBlock(event, args, flags)
 
         print("Placing "..blockType.." in area with id "..blockId..(cleanup ~= nil and " with cleanup" or ""));
         fillWithBlock(coords, blockId);
+      else
+        event.player:sendTextMessage("[#FF0000]"..i18n.t(event.player, "cmd.no.selection"));
       end
     end);
   elseif blockType == nil then
