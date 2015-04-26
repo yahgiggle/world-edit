@@ -89,7 +89,7 @@ In-game, in chat, type `/we <command>` where `<command>` is one of the following
 * `ramphalfcorner` (aliases: `rhc`, `ramphc`, `ramphalfc`)
 * `rampinnercorner` (aliases: `ric`, `rampic`)
 * `rampcorner` (aliases: `rc`, `rampc`)
-* `halfblockbottom` (aliases: `bh`, `hb1`, `hbb`, `halfblk`, `halfblk1`, `halfblkb`, `halfblock`, `halfblock1` `halfblockb`)
+* `halfblockbottom` (aliases: `hb`, `hb1`, `hbb`, `halfblk`, `halfblk1`, `halfblkb`, `halfblock`, `halfblock1` `halfblockb`)
 * `halfblockcenter` (aliases: `hb2`, `hbc`, `halfblk2`, `halfblkc`, `halfblock2`, `halfblockc`)
 * `halfblocktop` (aliases: `hb3`, `hbt`, `halfblk3`, `halfblkt`, `halfblock3`, `halfblockt`)
 * `pyramid` (aliases: `p`, `pyr`)
