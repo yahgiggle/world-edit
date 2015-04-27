@@ -154,12 +154,7 @@ end
 
 local function weFill(event, args, flags)
   local cleanup = flags["c"] or flags["clean"];
-  local id = tonumber(args[1]);
-
-  if id == nil then
-    -- try if an alias, then
-    id = textureAliasMap[string.lower(args[1] or "")];
-  end
+  local id = tonumber(args[1]) or textureAliasMap[string.lower(args[1] or "")];
 
   if id then
 
