@@ -10,7 +10,7 @@ function onPlayerConnect(event)
 	label:setVisible(false);
 	label:setFontColor(0xFFFF00FF); -- yellow, opaque
 	label:setPivot(0);  -- left aligned
-	event.player:setAttribute("stateLabel", label);
+	event.player:setAttribute("weStateLabel", label);
 	event.player:addGuiElement(label);
 end
 addEvent("PlayerConnect", onPlayerConnect);

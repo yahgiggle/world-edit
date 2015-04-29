@@ -30,15 +30,15 @@ local function weHelp(event, args)
     event.player:sendTextMessage("[#FFFF00]"..i18n.t(event.player, "help.cancel.usage"));
   elseif helpContext == "clear" then
     print("Showing /we clear help");
-    event.player:sendTextMessage("[#33FF33]/we clear ["..table.concat(clearAvailableArgs, '|').."]");
+    event.player:sendTextMessage("[#33FF33]/we clear ["..table.concat(clearAvailableArgs, '|').."] [-p]");
     event.player:sendTextMessage("[#FFFF00]"..i18n.t(event.player, "help.clear.usage"));
   elseif helpContext == "fill" then
     print("Showing /we fill help");
-    event.player:sendTextMessage("[#33FF33]/we fill ["..table.concat(fillAvailableArgs, '|').."]");
+    event.player:sendTextMessage("[#33FF33]/we fill ["..table.concat(fillAvailableArgs, '|').."] [-p]");
     event.player:sendTextMessage("[#FFFF00]"..i18n.t(event.player, "help.fill.usage"));
   elseif helpContext == "place" then
     print("Showing /we place help");
-    event.player:sendTextMessage("[#33FF33]/we place blocktype id [north|east|south|west] [sideway|flipped]");
+    event.player:sendTextMessage("[#33FF33]/we place blocktype id [north|east|south|west] [sideway|flipped] [-p]");
     event.player:sendTextMessage("[#FFFF00]"..i18n.t(event.player, "help.place.usage"));
     event.player:sendTextMessage("[#FFFF00]"..i18n.t(event.player, "help.place.blocktypes", "blocktype", table.concat(getBlockTypes(), ', ')));
   else
@@ -51,7 +51,7 @@ end
 
 
 local function setLabel(event, text)
-  local label = event.player:getAttribute("stateLabel");
+  local label = event.player:getAttribute("weStateLabel");
 
   if text then
     label:setText(text);
@@ -65,20 +65,18 @@ end
 
 
 local function weSelect(event)
-  print("Area selection start");
   event.player:enableMarkingSelector(function()
-
+    print("Area selection start");
+    setLabel(event, i18n.t(event.player, "select.start"));
   end);
-
-  setLabel(event, i18n.t(event.player, "select.start"));
 end
 
 
 local function weCancel(event)
   event.player:disableMarkingSelector(function(markingEvent)
-    if markingEvent ~= false then
-      setLabel(event);
+    setLabel(event);
 
+    if markingEvent ~= false then
       print("Area selection cancelled");
       event.player:sendTextMessage("[#FF0000]"..i18n.t(event.player, "select.cancelled"));
     end
@@ -89,10 +87,9 @@ end
 local function weClear(event, args, flags)
   local clearObjType = string.lower(args[1] or "all");
 
-  event.player:disableMarkingSelector(function(markingEvent)
+  event.player:getMarkingSelectorStatus(function(markingEvent)
     if markingEvent ~= false then
       local coords = getCoordsFromMarkEvent(markingEvent);
-      setLabel(event);
 
       if clearObjType == "obj" then
         print("Clearing area of objects");
@@ -111,6 +108,12 @@ local function weClear(event, args, flags)
         removeAll(coords, true);
       else
         return event.player:sendTextMessage("[#FF0000]"..i18n.t(event.player, "cmd.use.args", table.concat(clearAvailableArgs, ", ")));
+      end
+
+      if not flags["p"] then
+        event.player:disableMarkingSelector(function()
+          setLabel(event);
+        end);
       end
     else
       event.player:sendTextMessage("[#FF0000]"..i18n.t(event.player, "cmd.no.selection"));
@@ -133,13 +136,18 @@ local function wePlaceBlock(event, args, flags)
       blockId = 21;
     end;
 
-    event.player:disableMarkingSelector(function(markingEvent)
+    event.player:getMarkingSelectorStatus(function(markingEvent)
       if markingEvent ~= false then
         local coords = getCoordsFromMarkEvent(markingEvent);
-        setLabel(event);
 
         print("Placing "..blockType.." in area with id "..blockId..(cleanup ~= nil and " with cleanup" or ""));
         fillWithBlock(coords, blockId);
+
+        if not flags["p"] then
+          event.player:disableMarkingSelector(function()
+            setLabel(event);
+          end);
+        end
       else
         event.player:sendTextMessage("[#FF0000]"..i18n.t(event.player, "cmd.no.selection"));
       end
@@ -163,13 +171,18 @@ local function weFill(event, args, flags)
       id = 0;
     end;
 
-    event.player:disableMarkingSelector(function(markingEvent)
+    event.player:getMarkingSelectorStatus(function(markingEvent)
       if markingEvent ~= false then
         local coords = getCoordsFromMarkEvent(markingEvent);
-        setLabel(event);
 
         print("Filling area with id "..id..(cleanup ~= nil and " with cleanup" or ""));
         fillWith(coords, id, cleanup);
+
+        if not flags["p"] then
+          event.player:disableMarkingSelector(function()
+            setLabel(event);
+          end);
+        end
       else
         event.player:sendTextMessage("[#FF0000]"..i18n.t(event.player, "cmd.no.selection"));
       end
