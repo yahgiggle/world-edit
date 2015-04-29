@@ -54,6 +54,23 @@ Your final script folder should look somewhat like this
 (**Note**: there are more files, but only the necessary ones are shown, here.)
 
 
+## Updating
+
+Whenever world-edit is updated, you should also update your server. To keep up-to-date with the newest features, but more importantly to stay up-to-date with the most recent patches of Rising World, and correct any security issues. You may also consider automating this process. The updates will take effect only after server restart.
+
+### Using Git
+
+Go to your `world-edit` script folder and type
+
+```
+git fetch --recurse-submodules origin master
+```
+
+### Manually
+
+Repeat manual installation process, overwrite any existing files.
+
+
 ## Usage
 
 In-game, in chat, type `/we <command>` where `<command>` is one of the following :
