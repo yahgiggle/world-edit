@@ -20,7 +20,7 @@ function onEnable()
 	i18n.init(config);
 
 	-- The console already prepend the script name on every log output
-  print("Script v0.5.61 loaded.");
+  print("Script v0.5.67 loaded.");
 end
 
 
