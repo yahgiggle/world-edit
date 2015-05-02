@@ -1,7 +1,7 @@
 
 include("command-parser/parse-args.lua");
 include("security.lua");
-include("table-ext.lua");
+include("table-ext/table-ext.lua");
 
 
 local textureAliasMap = {
