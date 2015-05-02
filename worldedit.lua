@@ -2,9 +2,6 @@
 --- World Edit script
 ---
 
--- global variables; required by other modules
-config = getProperty("config.properties");
-
 -- load dependencies
 include("i18n/i18n.lua");
 include("blocks.lua");
@@ -16,6 +13,7 @@ local world = getWorld();
 
 
 function onEnable()
+	local config = getProperty("config.properties");
 
 	i18n.init(config);
 
