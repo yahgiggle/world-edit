@@ -30,6 +30,8 @@ Download the Zip file for the [i18n](https://github.com/RisingWorld/i18n/archive
 
 Download the Zip file for the [command parser](https://github.com/RisingWorld/command-parser/archive/master.zip) sub-module, and extract it inside the `command-parser` folder of this script.
 
+Download the Zip file for the [table-ext](https://github.com/RisingWorld/table-ext/archive/master.zip) sub-module, and extract it inside the `table-ext` folder of this script.
+
 Your final script folder should look somewhat like this
 
 ```
@@ -40,14 +42,16 @@ Your final script folder should look somewhat like this
       ./i18n.lua
    ./lc_messages
       ./en.locale
+      ./de.locale
    ./listeners
       ./commandListener.lua
       ./playerListener.lua
+   ./table-ext
+      ./table-ext.lua
    ./definition.xml
    ./blocks.lua
    ./config.properties
    ./security.lua
-   ./table-ext.lua
    ./worldedit.lua
 ```
 
