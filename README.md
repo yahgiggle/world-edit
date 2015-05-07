@@ -12,7 +12,7 @@ Instead of `/we-select`, players must type `/we select` (no dash). Also, `/we-fi
 
 ## Installation
 
-This modules has two dependencies, therefore you need to make sure both of them are properly installed before using this script!
+This modules has dependencies, therefore you need to make sure that all of them are properly installed before using this script!
 
 ### Using Git
 
@@ -89,7 +89,7 @@ In-game, in chat, type `/we <command>` where `<command>` is one of the following
 * `fill air|dirt|grass|stone|#id [-c]` : fill the selected area with the specified terrain.  Add `-c` to clear everything, first.  
   Ex: `/we fill -c grass`
 
-* `fill clear [obj|con|veg|all|abs]` : clear the selected area of (obj)ects, (con)structions, (veg)etations, (all), or (abs)olutely everything. (Default `all`)  
+* `clear [obj|con|veg|all|abs]` : clear the selected area of (obj)ects, (con)structions, (veg)etations, (all), or (abs)olutely everything. (Default `all`)  
   Ex: `/we clear veg`
 
 * `place <blockType> id [north|east|south|west [sideway|flipped]]` : place a block with the given `id`, optionally facing the given direction and put `sideway` or `flipped`.  
