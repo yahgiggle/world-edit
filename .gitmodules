@@ -7,3 +7,6 @@
 [submodule "table-ext"]
 	path = table-ext
 	url = https://github.com/RisingWorld/table-ext
+[submodule "string-ext"]
+	path = string-ext
+	url = https://github.com/RisingWorld/string-ext

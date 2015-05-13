@@ -1,4 +1,10 @@
 
+## 2015-05-12
+
+* Added `string-ext` sub-module to wrap long lines when displaying help (i.e. `/we help`)
+* All terrain textures are now listed and available with `/we fill`, type `/we help fill` for more info.
+
+
 ## 2015-05-01
 
 * Moved `table-ext.lua` in it's own [sub-module](https://github.com/RisingWorld/table-ext).

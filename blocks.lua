@@ -149,5 +149,7 @@ function getBlockTypes()
     end
   end
 
+  table.sort(types);
+
   return types;
 end

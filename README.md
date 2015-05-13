@@ -32,6 +32,8 @@ Download the Zip file for the [command parser](https://github.com/RisingWorld/co
 
 Download the Zip file for the [table-ext](https://github.com/RisingWorld/table-ext/archive/master.zip) sub-module, and extract it inside the `table-ext` folder of this script.
 
+Download the Zip file for the [string-ext](https://github.com/RisingWorld/string-ext/archive/master.zip) sub-module, and extract it inside the `string-ext` folder of this script.
+
 Your final script folder should look somewhat like this
 
 ```
@@ -46,6 +48,8 @@ Your final script folder should look somewhat like this
    ./listeners
       ./commandListener.lua
       ./playerListener.lua
+   ./string-ext
+      ./string-ext.lua
    ./table-ext
       ./table-ext.lua
    ./definition.xml
@@ -81,12 +85,29 @@ In-game, in chat, type `/we <command>` where `<command>` is one of the following
 
 ### Commands
 
-* `help [<command>]` : dipslay help. If `<command>` is specified, display help for that command.  
+* `help [command]` : dipslay help. If `command` is specified, display help for that command.  
   Ex: `/we help fill`
 
 * `select` : start area selection  
 * `cancel` : cancel area selection
-* `fill air|dirt|grass|stone|#id [-c]` : fill the selected area with the specified terrain.  Add `-c` to clear everything, first.  
+* `fill <texture|#id> [-c]` : fill the selected area with the specified terrain.  Add `-c` to clear everything, first. All available textures are 
+  * air (id `0`)
+  * dirt (id `1`)
+  * grass (id `2`)
+  * stone (id `3`)
+  * gravel (id `4`)
+  * rock (id `5`)
+  * farmland (id `6`)
+  * mud (id `7`)
+  * snow (id `8`)
+  * sand (id `9`)
+  * desertdirt (id `10`)
+  * desertstone (id `11`)
+  * clay (id `12`)
+  * dungeonwall (id `13`)
+  * dungeonfloor (id `14`)
+  * bonewall (id `15`)
+  * hellstone (id `16`)    
   Ex: `/we fill -c grass`
 
 * `clear [obj|con|veg|all|abs]` : clear the selected area of (obj)ects, (con)structions, (veg)etations, (all), or (abs)olutely everything. (Default `all`)  

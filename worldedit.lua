@@ -4,6 +4,9 @@
 
 -- load dependencies
 include("i18n/i18n.lua");
+include("security.lua");
+include("table-ext/table-ext.lua");
+include("string-ext/string-ext.lua");
 include("blocks.lua");
 include("listeners/playerListener.lua");
 include("listeners/commandListener.lua");
@@ -18,7 +21,7 @@ function onEnable()
 	i18n.init(config);
 
 	-- The console already prepend the script name on every log output
-  print("Script v0.5.67 loaded.");
+  print("Script v0.5.68 loaded.");
 end
 
 
